@@ -43,7 +43,7 @@ const registerUser = async (req, res, next) => {
     await newUser.save();
 
     try {
-      await sendOTP(phoneNumber, `Your verification OTP is ${otp}`);
+      await sendOTP(phoneNumber, otp);
     } catch (smsError) {
       // Delete the user if SMS fails to avoid orphaned unverified accounts
       await User.deleteOne({ _id: newUser._id });
