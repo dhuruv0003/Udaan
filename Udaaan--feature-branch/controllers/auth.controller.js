@@ -131,7 +131,7 @@ const resendOTP = async (req, res, next) => {
     user.otpExpires = otpExpires;
     await user.save();
 
-    await sendOTP(phoneNumber, `Your new verification OTP is ${otp}`);
+    await sendOTP(phoneNumber, otp);
 
     res.status(200).json({
       success: true,
