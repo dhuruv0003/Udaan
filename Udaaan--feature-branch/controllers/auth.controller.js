@@ -37,7 +37,7 @@ const registerUser = async (req, res, next) => {
       phoneNumber,
       email,
       dob,
-      isVerified: false
+      isActive: true
     });
 
     if (!newUser) {
@@ -60,6 +60,7 @@ const registerUser = async (req, res, next) => {
       await User.deleteOne({ _id: newUser._id });
       return next(new ErrorResponse('Failed to send OTP. Please try again later.', 500));
     }
+
 
    
     res.status(201).json({

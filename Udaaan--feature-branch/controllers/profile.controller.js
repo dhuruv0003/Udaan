@@ -30,7 +30,6 @@ const updateProfile = async (req, res, next) => {
     const user = await User.findOne({ email });
     if (!user) {
       return next(new ErrorResponse('User not found', 404));
-    
     }
 
     if (firstName) user.firstName = firstName;

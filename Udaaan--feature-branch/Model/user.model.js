@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'Date of Birth is required']
   },
-  isVerified: {
+  isActive: {
     type: Boolean,
     default: false
   },
